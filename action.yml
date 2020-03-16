@@ -8,7 +8,7 @@ inputs:
   target-id:
     description: 'The ID of the target in the Targets section of the Events targets'
     required: true
-  target-arn:
+  task-definition:
     description: 'The ARN of the container image to insert into the Event targets'
     required: true
 outputs:

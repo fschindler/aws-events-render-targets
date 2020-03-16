@@ -8,7 +8,7 @@ async function run(): Promise<void> {
     // Get inputs
     const targetsFile = core.getInput('targets', {required: true})
     const targetId = core.getInput('target-id', {required: true})
-    const targetArn = core.getInput('target-arn', {required: true})
+    const targetArn = core.getInput('task-definition', {required: true})
 
     // Parse the task definition
     const targetsPath = path.isAbsolute(targetsFile)
@@ -32,7 +32,7 @@ async function run(): Promise<void> {
     if (!targetDef) {
       throw new Error('Invalid targets: Could not find target with matching id')
     }
-    targetDef.Arn = targetArn
+    targetDef.EcsParameters.TaskDefinitionArn = targetArn
 
     // Write out a new targets file
     const updatedTargetsFile = tmp.fileSync({
