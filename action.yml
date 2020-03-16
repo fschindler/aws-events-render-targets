@@ -1,10 +1,19 @@
 name: 'Your name here'
 description: 'Provide a description here'
-author: 'Your name or organization here'
+author: 'Felix Schindler'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  targets:
+    description: 'The path to the Events targets JSON file'
+    required: true
+  target-id:
+    description: 'The ID of the target in the Targets section of the Events targets'
+    required: true
+  target-arn:
+    description: 'The ARN of the container image to insert into the Event targets'
+    required: true
+outputs:
+  targets:
+    description: 'The path to the rendered targets file'
 runs:
   using: 'node12'
   main: 'dist/index.js'
